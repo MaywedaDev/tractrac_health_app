@@ -14,6 +14,8 @@ const useFirebase = () => {
 
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
+
+    return {app, auth}
 }
 
 export default useFirebase

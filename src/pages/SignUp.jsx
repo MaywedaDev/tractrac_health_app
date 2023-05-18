@@ -5,26 +5,26 @@ import Typography from '@mui/material/Typography';
 import logo from '../assets/Group-53.png'
 import Box from '@mui/material/Box';
 import Checkbox from '@mui/material/Checkbox';
-import { Link } from 'react-router-dom'
-import { useState } from 'react';
-import { logInUser } from '../hooks/firebaseAuth';
+import { Link } from 'react-router-dom';
+import { signUpUser } from '../hooks/firebaseAuth';
+import { useState} from 'react';
 
-const LogIn = () => {
+const SignUp = () => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [name, setName] = useState('')
     const [response, setResponse] = useState({
         message: '',
         status: ''
     })
 
-    const logUser = async () => {
-        
+    const createUser = async () => {
         setResponse({
             message: '',
             status: ''
         })
-        const isRegistered = await logInUser(email, password)
+        const isRegistered = await signUpUser(email, password)
 
         if(isRegistered.success){
             setResponse({message: isRegistered.message, status: 'success'})
@@ -34,14 +34,19 @@ const LogIn = () => {
         }
     }
 
-    return ( <div className='flex justify-center items-center min-h-screen py-20 dark:bg-[#050517] bg-primary font-body'>
-        <Card color='primary' sx={{maxWidth: '500px', width: '90%', p: 4, borderRadius: 4}} variant='outlined'>
+
+    return ( <div className='flex justify-center items-center min-h-screen py-20 bg-primary dark:bg-[#050517] font-body'>
+        <Card sx={{maxWidth: '500px', width: '90%', p: 4, borderRadius: 4}} variant='outlined'>
             <CardContent sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                 <img src={logo} alt="" className='mb-6'/>
-                <Typography color='myText' variant='h6'  component='span' sx={{display: 'inline', fontWeight: 700, textTransform: 'uppercase'}} mb={4}>
+                <Typography variant='h6'  component='span' sx={{display: 'inline', fontWeight: 700, textTransform: 'uppercase'}} mb={4}>
                     Create Account
                 </Typography>
                 <Box sx={{display: 'flex', flexDirection: 'column', gap: 3, width: '100%'}}>
+                    <Box sx={{display: 'flex', flexDirection: 'column'}}>
+                        <label className='mb-2 text-[14px]'>Name</label>
+                        <input value={name} onChange={(e) => setName(e.target.value)} className='w-full py-4 px-3 border rounded-3xl text-[14px] border-slate-200' type="text" placeholder='Ola Boluwatife'/>
+                    </Box>
                     <Box sx={{display: 'flex', flexDirection: 'column'}}>
                         <label className='mb-2 text-[14px]'>Email</label>
                         <input name='email' value={email} onChange={(e) => setEmail(e.target.value)} className='w-full py-4 px-3 border rounded-3xl text-[14px] border-slate-200' type="text" placeholder='olaboluwatofezzy@gmail.com'/>
@@ -52,21 +57,16 @@ const LogIn = () => {
                     </Box>
                 </Box>
                 
-                <Box sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', my: 2}}>
-                    <Box sx={{display: 'flex', alignItems: 'center'}}>
-                        <Checkbox sx={{p: 0}}/>
-                        <p className='text-[14px] ml-1'>Remember Me</p>
-                    </Box>
-                    <Box>
-                        <p className='text-[14px] ml-1 text-primary underline'>Forgot password?</p>
-                    </Box>
+                <Box sx={{display: 'flex', alignItems: 'center', width: '100%', my: 2}}>
+                    <Checkbox sx={{p: 0}}/>
+                    <p className='text-[14px] ml-1'>I accept the <span  className='text-primary underline'>Terms & Conditions</span></p>
                 </Box>
-                <Button onClick={logUser} sx={{width: '100%', borderRadius: 6, py: '13px', my: 4, backgroundColor: '#100DB1'}} variant='contained' disableElevation >Login</Button>
+                <Button onClick={createUser} sx={{width: '100%', borderRadius: 6, py: '13px', my: 4, backgroundColor: '#100DB1'}} variant='contained' disableElevation >SignUp</Button>
                 {response.message && <p className={response.status === 'success' ? 'text-primary': 'text-[#ff0000]'}>{response.message}</p>}
-                <p className='text-[14px] pb-0'>Don't have an account? <Link to='/' className='text-primary underline'>Create an account</Link></p> 
+                <p className='text-[14px] pb-0'>Already have an account? <Link to='/login' className='text-primary underline'>Login</Link></p> 
             </CardContent>
         </Card> 
     </div> );
 }
  
-export default LogIn;
+export default SignUp;
