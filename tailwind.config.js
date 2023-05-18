@@ -16,7 +16,9 @@ export default {
         bold: '700',
       },
       colors: {
-        primary: '#100DB1'
+        primary: '#100DB1',
+        'dark-accent': '#050517',
+        'dark-purple': '#0C0C35'
       }
     },
   },
