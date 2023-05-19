@@ -8,8 +8,14 @@ import Checkbox from '@mui/material/Checkbox';
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
 import { logInUser } from '../hooks/firebaseAuth';
+import userContext from '../stores/userContext';
+import { useContext } from 'react';
+import { useHistory } from "react-router-dom";
 
 const LogIn = () => {
+
+    const history = useHistory()
+    const user = useContext(userContext)
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -17,6 +23,7 @@ const LogIn = () => {
         message: '',
         status: ''
     })
+    const [loading, setLoading] = useState(false)
 
     const logUser = async () => {
         
@@ -24,12 +31,21 @@ const LogIn = () => {
             message: '',
             status: ''
         })
+        setLoading(true)
         const isRegistered = await logInUser(email, password)
 
         if(isRegistered.success){
+            setLoading(false)
             setResponse({message: isRegistered.message, status: 'success'})
+            user.setEmail(isRegistered.user.email)
+            if(isRegistered.user?.displayName){
+                user.setName(isRegistered.user.displayName)
+            }
+            console.log(user)
+            history.push('/dashboard')
         }
         else{
+            setLoading(false)
             setResponse({message: isRegistered.message, status: 'error'})
         }
     }
@@ -44,11 +60,11 @@ const LogIn = () => {
                 <Box sx={{display: 'flex', flexDirection: 'column', gap: 3, width: '100%'}}>
                     <Box sx={{display: 'flex', flexDirection: 'column'}}>
                         <label className='mb-2 text-[14px]'>Email</label>
-                        <input name='email' value={email} onChange={(e) => setEmail(e.target.value)} className='w-full py-4 px-3 border rounded-3xl text-[14px] border-slate-200' type="text" placeholder='olaboluwatofezzy@gmail.com'/>
+                        <input name='email' value={email} onChange={(e) => setEmail(e.target.value)} className=' dark:bg-dark-accent w-full py-4 px-3 border rounded-3xl text-[14px] border-slate-200' type="text" placeholder='olaboluwatofezzy@gmail.com'/>
                     </Box>
                     <Box sx={{display: 'flex', flexDirection: 'column'}}>
                         <label className='mb-2 text-[14px]'>Password</label>
-                        <input name='password' value={password} onChange={(e) => setPassword(e.target.value)} className='w-full py-4 px-3 border rounded-3xl text-[14px] border-slate-200' type="text" placeholder='XXXXXXXXXXX'/>
+                        <input name='password' value={password} onChange={(e) => setPassword(e.target.value)} className=' dark:bg-dark-accent w-full dark:bg- py-4 px-3 border rounded-3xl text-[14px] border-slate-200' type="text" placeholder='XXXXXXXXXXX'/>
                     </Box>
                 </Box>
                 
@@ -61,7 +77,7 @@ const LogIn = () => {
                         <p className='text-[14px] ml-1 text-primary underline'>Forgot password?</p>
                     </Box>
                 </Box>
-                <Button onClick={logUser} sx={{width: '100%', borderRadius: 6, py: '13px', my: 4, backgroundColor: '#100DB1'}} variant='contained' disableElevation >Login</Button>
+                <Button disabled={loading} onClick={logUser} sx={{width: '100%', borderRadius: 6, py: '13px', my: 4, backgroundColor: '#100DB1'}} variant='contained' disableElevation >Login</Button>
                 {response.message && <p className={response.status === 'success' ? 'text-primary': 'text-[#ff0000]'}>{response.message}</p>}
                 <p className='text-[14px] pb-0'>Don't have an account? <Link to='/' className='text-primary underline'>Create an account</Link></p> 
             </CardContent>

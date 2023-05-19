@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import logo from '../assets/Group-53.png'
 import { Home } from "@mui/icons-material";
 import icons from '../assets/icons'
+import { Link } from 'react-router-dom';
 // import { makeStyles } from "@mui/material"; 
 const drawerWidth = 270
 
@@ -13,9 +14,9 @@ const drawerWidth = 270
 //     }
 // })
 
-const tabs = [{title: 'Overview', src: 'overview'}, {title: 'Appointments', src: 'apt'},
- {title: 'Doctors', src: 'doctors'}, {title: 'Pathology Results', src: 'path'}, {title: 'Chats', src: 'chat'}]
-const accountTabs = [{title: 'Settings', src: 'search'}, {title: 'Logout', src: 'logout'}]
+const tabs = [{title: 'Overview', src: 'overview', url: '/dashboard'}, {title: 'Appointments', src: 'apt', url: ''},
+ {title: 'Doctors', src: 'doctors', url: ''}, {title: 'Pathology Results', src: 'path', url: ''}, {title: 'Chats', src: 'chat', url: ''}]
+const accountTabs = [{title: 'Settings', src: 'search', url: ''}, {title: 'Logout', src: 'logout', url: '/logout'}]
 const SideNav = () => {
     // const classes = useStyles()
     // classes={{paper: classes.drawerPaper}}
@@ -39,7 +40,7 @@ const SideNav = () => {
                                 <img src={icons[item.src]} alt="" />
                             </ListItemIcon>
                             <ListItemText >
-                                <p className="text-[14px]">{item.title}</p>
+                                <Link to={item.url} className="text-[14px]">{item.title}</Link>
                             </ListItemText>
                         </ListItemButton>
                     ))}
@@ -56,7 +57,7 @@ const SideNav = () => {
                                 <img src={icons[item.src]} alt="" />
                             </ListItemIcon>
                             <ListItemText >
-                                <p className="text-[14px]">{item.title}</p>
+                                <Link to={item.url} className="text-[14px]">{item.title}</Link>
                             </ListItemText>
                         </ListItemButton>
                     ))}

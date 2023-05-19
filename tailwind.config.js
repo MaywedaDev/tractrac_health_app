@@ -1,11 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      darkMode: 'class',
       fontFamily: {
         "body": "Poppins, sans-serif"
       },
@@ -18,7 +18,8 @@ export default {
       colors: {
         primary: '#100DB1',
         'dark-accent': '#050517',
-        'dark-purple': '#0C0C35'
+        'dark-purple': '#0C0C35',
+        'paper': '#F7F7F7'
       }
     },
   },
