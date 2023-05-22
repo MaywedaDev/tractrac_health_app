@@ -23,7 +23,7 @@ const Layout = ({children}) => {
             <div className="min-h-full w-full flex flex-col">
                 <SearchBar />
                 <div className="flex flex-col px-6 w-full text-[14px] h-full">
-                    <div className="flex justify-between">
+                    <div className="flex justify-between mb-4">
                         <div>
                             <p className="text-[#ff0000]">Welcome {user.name == 'Unknown' ? user.email : user.name}</p>
                             <span className="dark:text-white">How are you feeling today</span>

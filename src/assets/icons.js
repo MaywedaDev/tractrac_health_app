@@ -6,6 +6,8 @@ import logout from './Logout.svg'
 import apt from './appointments.svg'
 import search from './search.svg'
 import expand from './ExpandIcon.svg'
+import htLns from './Group.svg'
+import expandLight from './ExpandIconlight.svg'
 
 export default {
     doctors,
@@ -15,5 +17,7 @@ export default {
     logout,
     apt,
     search,
-    expand
+    expand,
+    htLns,
+    expandLight
 }
