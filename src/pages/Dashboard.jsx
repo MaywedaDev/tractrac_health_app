@@ -9,8 +9,8 @@ const Dashboard = () => {
     return (  
         <Layout>
             <div className="px-6 w-full h-full">
-                <StatCharts />
-                {/* <img className="w-full h-full" src={user.theme ? darkAsset : asset} alt="" /> */}
+                {/* <StatCharts /> */}
+                <img className="w-full h-full" src={user.theme ? darkAsset : asset} alt="" />
             </div>
             
         </Layout>
