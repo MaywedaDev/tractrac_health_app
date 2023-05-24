@@ -24,6 +24,14 @@ const SideNav = () => {
         setMobileOpen(!mobileOpen);
       };
     return ( <div>
+        <div style={{
+            '@media screen and (min-width: 900px)': {
+                display: 'none'
+            }
+        }} onClick={handleDrawerToggle} className="h-12 w-12 flex justify-center items-center bg-paper mt-6 ml-4 dark:bg-dark-purple rounded-md">
+            <img  src={ icons.expandLight } alt="" />
+            
+        </div>
         <Drawer
           container={container}
           variant="temporary"
