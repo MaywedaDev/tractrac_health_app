@@ -47,7 +47,7 @@ const SideNav = () => {
         >
           {drawer}
         </Drawer>
-        <Drawer anchor="left"  variant="permanent" sx={{display: {sm: 'none', md: 'block'}, width: drawerWidth}}>
+        <Drawer anchor="left"  variant="permanent" sx={{display: {xs: 'none',sm: 'none', md: 'block'}, width: drawerWidth}}>
             {drawer}
         </Drawer>
     </div> );
