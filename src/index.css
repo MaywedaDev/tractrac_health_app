@@ -9,6 +9,6 @@
   box-sizing: border-box;
   transition: background-color 300ms;
 }
-/* body{
-  background-color: blue;
-} */
+body{
+  font-family: Poppins, sans-serif;
+}

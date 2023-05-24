@@ -16,7 +16,7 @@ const tabs = [{title: 'Overview', src: 'overview', url: '/dashboard'}, {title: '
  {title: 'Doctors', src: 'doctors', url: ''}, {title: 'Pathology Results', src: 'path', url: ''}, {title: 'Chats', src: 'chat', url: ''}]
 const accountTabs = [{title: 'Settings', src: 'search', url: ''}, {title: 'Logout', src: 'logout', url: '/logout'}]
 const SideNav = () => {
-    const [mobileOpen, setMobileOpen] = useState(true)
+    const [mobileOpen, setMobileOpen] = useState(false)
     const userTheme = useContext(userThemeContext)
     // const classes = useStyles()
     // classes={{paper: classes.drawerPaper}}
@@ -25,7 +25,7 @@ const SideNav = () => {
       };
     return ( <div>
         <div style={{
-            '@media screen and (min-width: 900px)': {
+            '@media screen and (minWidth: 900px)': {
                 display: 'none'
             }
         }} onClick={handleDrawerToggle} className="h-12 w-12 flex justify-center items-center bg-paper mt-6 ml-4 dark:bg-dark-purple rounded-md">

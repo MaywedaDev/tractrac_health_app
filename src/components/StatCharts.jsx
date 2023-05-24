@@ -3,49 +3,67 @@ import { CategoryScale } from "chart.js";
 import { useState } from "react";
 import { Data } from '../utils/data'
 import { Card, CardContent, CardHeader, Typography } from "@mui/material";
-import { Pie } from "react-chartjs-2";
+import { Pie, Doughnut } from "react-chartjs-2";
 
 Chart.register(CategoryScale);
 
+const CardStyles = {width: 250 , height: 220, borderRadius: 3}
+
 const StatCharts = () => {
     const [chartData, setChartData] = useState({
-        labels: Data.map((data) => data.year), 
+        labels: Data.map((data) => data.illness), 
         datasets: [
           {
             label: "Users Gained ",
             data: Data.map((data) => data.userGain),
             backgroundColor: [
-              "rgba(75,192,192,1)",
-              '#ffffff',
-              "#50AF95",
-              "#f3ba2f",
-              "#2a71d0"
+              "#0000FF",
+              '#FFFB00',
+              "#2a71d0",
+              "#FF0000"
             ],
-            borderColor: "black",
-            borderWidth: 2
+            borderColor: "none",
+            borderWidth: 0,
+            weight: 0.2,
+            cutout: '70%',
+            radius: 60
           }
         ]
       });
     return ( <div className="flex flex-wrap gap-x-5">
-            <Card sx={{width: 250 , height: 210, borderRadius: 3}} color="primary" variant="outlined">
+            <Card sx={CardStyles} color="primary" variant="outlined">
                 <CardContent >
-                   <Typography variant="p" textTransform={'uppercase'} >Diagnostics</Typography>
-                   <Pie
+                   <Typography fontSize={12} fontWeight={'bold'} variant="p" textTransform={'uppercase'} >Diagnostics</Typography>
+                   <Doughnut
                     data={chartData}
                     options={{
                     plugins: {
-                        title: {
-                        display: true,
-                        text: "Users Gained between 2016-2020"
-                        }
-                    }
+                      legend: {
+                        labels: {
+                          pointStyle: 'circle',
+                          usePointStyle: true,
+                          boxHeight: 6,
+                          color: '#ffffff',
+                          font: {
+                            size: 10,
+                            lineHeight: 0.8,
+                            weight: 'bold',
+                            family: 'Poppins'
+                          }
+                        },
+                        position: 'bottom'
+                      }
+                    },
+                    responsive: true,
+                    aspectRatio: 1.2,
+                    rotation: 220
                     }}
                    />
                 </CardContent>
             </Card>
-            <Card color="primary" variant="outlined" sx={{width: 250 , height: 210, borderRadius: 3}}>
+            <Card color="primary" variant="outlined" sx={CardStyles}>
                 <CardContent >
-                    <Typography variant="p" textTransform={'uppercase'} >Patients</Typography>
+                    <Typography fontSize={12} fontWeight={'bold'} variant="p" textTransform={'uppercase'} >Patients</Typography>
                 </CardContent>
             </Card>
         </div> );
