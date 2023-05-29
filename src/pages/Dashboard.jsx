@@ -9,7 +9,7 @@ const Dashboard = () => {
     const user = useContext(userThemeContext)
     return (  
         <Layout>
-            <div className="px-6 w-full h-full flex flex-col gap-4">
+            <div className="px-2 w-full h-full flex flex-col gap-4">
                 <StatCharts />
                 {/* <img className="w-full h-full" src={user.theme ? darkAsset : asset} alt="" /> */}
                 <DoctorBar />

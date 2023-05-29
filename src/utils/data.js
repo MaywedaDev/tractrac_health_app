@@ -1,4 +1,4 @@
-export const Data = [
+export const illnessData = [
     {
       id: 1,
       illness: 'MALARIA',
@@ -25,20 +25,20 @@ export const Data = [
     }
   ];
 
-  const data = {
-    labels: ['Red', 'Orange', 'Blue'],
-    // datasets is an array of objects where each object represents a set of data to display corresponding to the labels above. for brevity, we'll keep it at one object
-    datasets: [
-        {
-          label: 'Popularity of colours',
-          data: [55, 23, 96],
-          // you can set indiviual colors for each bar
-          backgroundColor: [
-            'rgba(255, 255, 255, 0.6)',
-            'rgba(255, 255, 255, 0.6)',
-            'rgba(255, 255, 255, 0.6)'
-          ],
-          borderWidth: 1,
-        }
-    ]
-}
+  export const patientData = [
+    {
+      id: 0,
+      category: "MEN",
+      amount: 440
+    },
+    {
+      id: 1,
+      category: "WOMEN",
+      amount: 528 
+    },
+    {
+      id: 2,
+      category: "CHILDREN",
+      amount: 132
+    }
+  ]

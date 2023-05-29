@@ -7,7 +7,7 @@ const SearchBar = () => {
     const user = useContext(userContext)
 
 
-    return ( <div className="items-center m-5 mb-3 p-5 rounded-2xl bg-paper dark:bg-[#0C0C35] h-[80px] flex">
+    return ( <div className="items-center m-4 mb-3 p-5 rounded-2xl bg-paper dark:bg-[#0C0C35] h-[80px] flex">
         <div className="flex items-center w-full h-full px-3 gap-2">
             <input className="w-full rounded-lg h-full py-3 px-4 text-[14px]" type="text" placeholder='Search pathology results'/>
             <div className='border-slate-700 border bg-white p-1 rounded-full'>
