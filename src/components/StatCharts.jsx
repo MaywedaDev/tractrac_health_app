@@ -5,29 +5,9 @@ import { illnessData } from '../utils/data'
 import { patientData } from "../utils/data";
 import { Card, CardContent, CardHeader, Typography } from "@mui/material";
 import { Pie, Doughnut } from "react-chartjs-2";
+import userThemeContext from "../stores/userThemeContext";
+import { useContext } from "react";
 
-const options = {
-  plugins: {
-    legend: {
-      labels: {
-        pointStyle: 'circle',
-        usePointStyle: true,
-        boxHeight: 6,
-        color: '#ffffff',
-        font: {
-          size: 10,
-          lineHeight: 0.8,
-          weight: 'bold',
-          family: 'Poppins'
-        }
-      },
-      position: 'bottom'
-    }
-  },
-  responsive: true,
-  aspectRatio: 1.2,
-  rotation: 220
-}
 
 const pallette = {
   borderColor: "none",
@@ -39,7 +19,7 @@ const pallette = {
 
 Chart.register(CategoryScale);
 
-const CardStyles = {width: 250 , height: 220, borderRadius: 3}
+const CardStyles = {width: 240 , height: 210, borderRadius: 3, mx: "auto"}
 
 const StatCharts = () => {
     const [chartData, setChartData] = useState({
@@ -58,8 +38,35 @@ const StatCharts = () => {
           }
         ]
       });
+
+      const userTheme = useContext(userThemeContext)
+
+      const options = {
+        plugins: {
+          legend: {
+            labels: {
+              pointStyle: 'circle',
+              usePointStyle: true,
+              boxHeight: 6,
+              color: userTheme.theme ? "#ffffff" : "#000000",
+              font: {
+                size: 10,
+                lineHeight: 0.8,
+                weight: 'bold',
+                family: 'Poppins'
+              }
+            },
+            position: 'bottom'
+          }
+        },
+        responsive: true,
+        aspectRatio: 1.2,
+        rotation: 220
+      }
+
+
       
-    return ( <div className="flex flex-wrap gap-x-5">
+    return ( <div className="flex flex-wrap gap-5">
             <Card sx={CardStyles} color="primary" variant="outlined">
                 <CardContent >
                    <Typography fontSize={12} fontWeight={'bold'} variant="p" textTransform={'uppercase'} >Diagnostics</Typography>

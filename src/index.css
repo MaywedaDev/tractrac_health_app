@@ -11,4 +11,16 @@
 }
 body{
   font-family: Poppins, sans-serif;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar{
+  display: none;
+}
+
+@media screen and (max-width: 900px) {
+  .searchbar{
+    margin-left: 80px !important;
+  }
 }

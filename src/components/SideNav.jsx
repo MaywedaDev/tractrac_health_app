@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import userThemeContext from "../stores/userThemeContext";
 import { useContext, useState } from "react";
 // import { makeStyles } from "@mui/material"; 
-const drawerWidth = 270
+const drawerWidth = 250
 
 
 const container = window !== undefined ? () => window.document.body : undefined;
@@ -28,7 +28,7 @@ const SideNav = () => {
             '@media screen and (minWidth: 900px)': {
                 display: 'none'
             }
-        }} onClick={handleDrawerToggle} className="h-12 w-12 flex justify-center items-center bg-paper mt-6 ml-4 dark:bg-dark-purple rounded-md">
+        }} onClick={handleDrawerToggle} className="h-12 w-12 flex justify-center items-center bg-paper mt-6 ml-4 dark:bg-dark-purple rounded-md absolute">
             <img  src={ icons.expandLight } alt="" />
             
         </div>
@@ -103,7 +103,8 @@ const drawer = (<div className="dark:bg-dark-purple bg-paper">
                     </ListItemIcon>
                     <ListItemText >
                         <p  className="text-[#ff0000] text-[12px]">Emergency Hotlines</p>
-                        <span className="text-[10px]">+234 92 928 2891  +234 60 621 2098</span>
+                        <p className="text-[10px]">+234 92 928 2891</p>
+                        <p className="text-[10px]"> +234 60 621 2098</p>
                     </ListItemText>
                 </ListItemButton>
             </List>

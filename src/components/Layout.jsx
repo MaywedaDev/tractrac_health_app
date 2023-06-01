@@ -18,14 +18,14 @@ const Layout = ({children}) => {
 
 
     return ( 
-        <div className="flex dark:bg-dark-accent min-h-screen">
+        <div className="flex dark:bg-dark-accent min-h-screen pb-4">
             <SideNav />
             <div className="min-h-full w-full flex flex-col">
                 <SearchBar />
                 <div className="flex flex-col px-2 w-full text-[14px] h-full">
                     <div className="flex justify-between mb-4">
-                        <div>
-                            <p className="text-[#ff0000]">Welcome {user.name == 'Unknown' ? user.email : user.name}</p>
+                        <div className="mx-1">
+                            <p className="text-[#ff0000] font-semibold">Welcome {user.name == 'Unknown' ? user.email : user.name}</p>
                             <span className="dark:text-white">How are you feeling today</span>
                         </div>
                         <div className="flex items-center">
