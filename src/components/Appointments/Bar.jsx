@@ -1,4 +1,26 @@
 import Section from "./Section";
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend,
+  } from 'chart.js';
+import { Bar as BarChart } from 'react-chartjs-2';
+import { appointmentsData } from "../../utils/data";
+import userThemeContext from "../../stores/userThemeContext";
+import { useContext } from "react";
+
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend
+  );
 
 
 const upcoming =  [
@@ -15,10 +37,90 @@ const prev = [
     {name: "Dr. Barnabas Paul", date: "Monday, June 14", color: "#100DB1", type: "Emergency"}
 ]
 
+const options = {
+    plugins: {
+        legend: {
+            labels: {
+              pointStyle: 'circle',
+              usePointStyle: true,
+              boxHeight: 6,
+              color: "#ffffff", /*userTheme.theme ? "#ffffff" : "#000000"*/
+              font: {
+                size: 10,
+                lineHeight: 0.8,
+                weight: 'bold',
+                family: 'Poppins'
+              }
+            },
+            position: 'bottom'
+          },
+    },
+    // responsive: true,
+    interaction: {
+      intersect: false,
+    },
+    scales: {
+      x: {
+        stacked: true,
+      },
+      y: {
+        stacked: true
+      }
+    },
+    aspectRatio: 1,
+    borderRadius: 5,
+    barThickness: 10
+}
+
 const Bar = () => {
+
+    const userTheme = useContext(userThemeContext)
+
+    const options = {
+        plugins: {
+            legend: {
+                labels: {
+                  pointStyle: 'circle',
+                  usePointStyle: true,
+                  boxHeight: 6,
+                  color:  userTheme.theme ? "#ffffff" : "#000000",
+                  font: {
+                    size: 10,
+                    lineHeight: 0.8,
+                    weight: 'bold',
+                    family: 'Poppins'
+                  }
+                },
+                position: 'bottom'
+              },
+        },
+        // responsive: true,
+        interaction: {
+          intersect: false,
+        },
+        scales: {
+          x: {
+            stacked: true,
+          },
+          y: {
+            stacked: true,
+            display: false
+          }
+        },
+        aspectRatio: 1,
+        borderRadius: 5,
+        barThickness: 10
+    }
     return ( 
         <div style={{minWidth: 290}} className="rounded-lg border hidden lg:block  dark:border-borderDark border-borderLight">
-        <Section title="Upcoming appointments">
+        <Section title="Overall appointments" divider={true}>
+            <BarChart options={options} data={{
+                labels: ['Apr', 'May', "Jun", 'Jul', 'Aug', 'Sep', 'Oct', "Nov", "Dec"],
+                datasets: appointmentsData
+            }}/>
+        </Section>
+        
+        <Section title="Upcoming appointments" divider={true}>
             
                {upcoming.map((item, i) => (<Tile key={i} {...item}/>) )}
         </Section>
@@ -38,8 +140,8 @@ const Bar = () => {
 
 const Tile = ({name, type, color, date}) => {
     return (<div className="flex mb-2 rounded-lg justify-between border p-3 text-[10px] dark:border-borderDark border-borderLight">
-    <div className="flex justify-between w-full">
-        <div style={{minWidth: "2.5em"}} className="rounded-full h-10 w-10 mr-1 dark:bg-slate-700 bg-slate-300"></div>
+    <div className="flex gap-x-2 w-full">
+        <div style={{minWidth: "2.5em"}} className="rounded-full h-10 w-10 dark:bg-slate-700 bg-slate-300"></div>
         <div>
             <p className="text-[11px] font-semibold">{name}</p>
             <p className="font-semibold" style={{color: color}}>{type}</p>

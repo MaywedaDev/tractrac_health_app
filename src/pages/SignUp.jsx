@@ -44,7 +44,7 @@ const SignUp = () => {
             }
             user.setIsLoggedIn(true)
             console.log(user)
-            history.push('/dashboard')
+            // history.push('/dashboard')
         }
         else{
             setLoading(false)
@@ -71,7 +71,7 @@ const SignUp = () => {
                     </Box>
                     <Box sx={{display: 'flex', flexDirection: 'column'}}>
                         <label className='mb-2 text-[14px]'>Password</label>
-                        <input name='password' value={password} onChange={(e) => setPassword(e.target.value)} className='w-full py-4 dark:bg-dark-accent px-3 border rounded-3xl text-[14px] border-slate-200' type="text" placeholder='XXXXXXXXXXX'/>
+                        <input type='password' name='password' value={password} onChange={(e) => setPassword(e.target.value)} className='w-full py-4 dark:bg-dark-accent px-3 border rounded-3xl text-[14px] border-slate-200' placeholder='XXXXXXXXXXX'/>
                     </Box>
                 </Box>
                 

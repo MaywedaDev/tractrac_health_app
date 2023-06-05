@@ -43,7 +43,7 @@ const LogIn = () => {
             }
             user.setIsLoggedIn(true)
             console.log(user)
-            history.push('/dashboard')
+            history.replace('/')
         }
         else{
             setLoading(false)
@@ -65,13 +65,13 @@ const LogIn = () => {
                     </Box>
                     <Box sx={{display: 'flex', flexDirection: 'column'}}>
                         <label className='mb-2 text-[14px]'>Password</label>
-                        <input name='password' value={password} onChange={(e) => setPassword(e.target.value)} className=' dark:bg-dark-accent w-full dark:bg- py-4 px-3 border rounded-3xl text-[14px] border-slate-200' type="text" placeholder='XXXXXXXXXXX'/>
+                        <input type="password" name='password' value={password} onChange={(e) => setPassword(e.target.value)} className=' dark:bg-dark-accent w-full dark:bg- py-4 px-3 border rounded-3xl text-[14px] border-slate-200' placeholder='XXXXXXXXXXX'/>
                     </Box>
                 </Box>
                 
                 <Box sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', my: 2}}>
                     <Box sx={{display: 'flex', alignItems: 'center'}}>
-                        <Checkbox sx={{p: 0}}/>
+                        <Checkbox sx={{p: 0}} color='secondary'/>
                         <p className='text-[14px] ml-1'>Remember Me</p>
                     </Box>
                     <Box>

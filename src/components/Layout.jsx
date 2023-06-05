@@ -23,7 +23,7 @@ const Layout = ({children}) => {
             <div className="min-h-full w-full flex flex-col">
                 <SearchBar />
                 <div className="flex flex-col px-2 w-full text-[14px] h-full">
-                    <div className="flex justify-between mb-4">
+                    <div className="flex justify-between mb-4 px-1">
                         <div className="mx-1">
                             <p className="text-[#ff0000] font-semibold">Welcome {user.name == 'Unknown' ? user.email : user.name}</p>
                             <span className="dark:text-white">How are you feeling today</span>
@@ -31,7 +31,7 @@ const Layout = ({children}) => {
                         <div className="flex items-center">
                             <WbSunny  color="secondary"/>
                             <Switch checked={userTheme.theme} onChange={handleTheme} color="secondary"/>
-                            <span className="dark:text-white">Apply {userTheme.theme ? 'Light': 'Dark'} theme</span>
+                            <span className="dark:text-white text-[14px] hidden md:inline">Apply {userTheme.theme ? 'Light': 'Dark'} theme</span>
                         </div>
                     </div>
                     {children}

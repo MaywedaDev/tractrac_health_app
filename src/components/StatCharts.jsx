@@ -19,7 +19,7 @@ const pallette = {
 
 Chart.register(CategoryScale);
 
-const CardStyles = {width: 240 , height: 210, borderRadius: 3, mx: "auto"}
+const CardStyles = {width: {xs: '100%', sm: 240} , height: {xs: 'auto', sm: 210}, borderRadius: 3, mx: "auto", }
 
 const StatCharts = () => {
     const [chartData, setChartData] = useState({
@@ -97,6 +97,11 @@ const StatCharts = () => {
                      }}
                      options={options}
                     />
+                </CardContent>
+            </Card>
+            <Card color="primary" variant="outlined" sx={CardStyles}>
+                <CardContent >
+                    <Typography fontSize={12} fontWeight={'bold'} variant="p" textTransform={'uppercase'}>Health Index</Typography>
                 </CardContent>
             </Card>
         </div> );

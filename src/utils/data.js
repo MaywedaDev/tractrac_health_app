@@ -42,3 +42,30 @@ export const illnessData = [
       amount: 132
     }
   ]
+
+  export const appointmentsData = [
+    {
+      data: [5, 3, 7, 4, 2, 8, 3, 0, 0],
+      label: 'Emergency',
+      backgroundColor: '#0000FF',
+      stack: "Stack 0"
+    },
+    {
+      data: [1, 8, 3, 2, 2, 9, 4, 0, 0],
+      label: 'Examination',
+      backgroundColor: '#FFFB00',
+      stack: "Stack 0"
+    },
+    {
+      data: [6, 4, 5, 3, 9, 2, 7, 1, 1],
+      label: 'Consultation',
+      backgroundColor: '#a500db',
+      stack: "Stack 0"
+    },
+    {
+      data: [7, 2, 1, 6, 9, 3, 6, 1, 1],
+      label: 'Routine CheckUp',
+      backgroundColor: '#FF0000',
+      stack: "Stack 0"
+    }
+  ]
