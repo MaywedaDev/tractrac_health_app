@@ -41,6 +41,7 @@ const LogIn = () => {
             if(isRegistered.user?.displayName){
                 user.setName(isRegistered.user.displayName)
             }
+            user.setIsLoggedIn(true)
             console.log(user)
             history.push('/dashboard')
         }

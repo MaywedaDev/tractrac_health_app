@@ -68,6 +68,7 @@ function App() {
   const [userTheme, setUserTheme] = useState(true)
   const [userName, setUserName] = useState('Unknown')
   const [userEmail, setUserEmail] = useState('unverified@gmail.com')
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   const themeCheck = () => {
     if (userSelectedTheme === 'dark' || (!userTheme && systemTheme)){
@@ -109,8 +110,10 @@ function App() {
       <userContext.Provider value={{
         name: userName,
         email: userEmail,
+        isLoggedIn: isLoggedIn,
         setName: setUserName,
-        setEmail: setUserEmail
+        setEmail: setUserEmail,
+        setIsLoggedIn: setIsLoggedIn
       }}>
         <userThemeContext.Provider value={{
           theme: userTheme,
@@ -120,7 +123,7 @@ function App() {
 
           <Switch>
             <Route exact path="/">
-              <SignUp />
+              {isLoggedIn ? <Dashboard /> : <SignUp />}
             </Route>
 
             <Route exact path='/login'>
@@ -131,9 +134,9 @@ function App() {
               <Logout />
             </Route>
 
-            <Route exact path='/dashboard'>
+            {/* <Route exact path='/dashboard'>
               <Dashboard />
-            </Route>
+            </Route> */}
           </Switch>
 
         </Router>

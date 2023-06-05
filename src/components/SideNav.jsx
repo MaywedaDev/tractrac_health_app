@@ -12,7 +12,7 @@ const drawerWidth = 250
 
 const container = window !== undefined ? () => window.document.body : undefined;
 
-const tabs = [{title: 'Overview', src: 'overview', url: '/dashboard'}, {title: 'Appointments', src: 'apt', url: ''},
+const tabs = [{title: 'Overview', src: 'overview', url: '/'}, {title: 'Appointments', src: 'apt', url: ''},
  {title: 'Doctors', src: 'doctors', url: ''}, {title: 'Pathology Results', src: 'path', url: ''}, {title: 'Chats', src: 'chat', url: ''}]
 const accountTabs = [{title: 'Settings', src: 'search', url: ''}, {title: 'Logout', src: 'logout', url: '/logout'}]
 const SideNav = () => {
