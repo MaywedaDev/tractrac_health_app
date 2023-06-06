@@ -65,7 +65,7 @@ const systemTheme = window.matchMedia("prefers-color-scheme: dark").matches;
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState(false)
-  const [userTheme, setUserTheme] = useState(true)
+  const [userTheme, setUserTheme] = useState(false)
   const [userName, setUserName] = useState('Unknown')
   const [userEmail, setUserEmail] = useState('unverified@gmail.com')
   const [isLoggedIn, setIsLoggedIn] = useState(false)
