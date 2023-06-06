@@ -37,40 +37,6 @@ const prev = [
     {name: "Dr. Barnabas Paul", date: "Monday, June 14", color: "#100DB1", type: "Emergency"}
 ]
 
-const options = {
-    plugins: {
-        legend: {
-            labels: {
-              pointStyle: 'circle',
-              usePointStyle: true,
-              boxHeight: 6,
-              color: "#ffffff", /*userTheme.theme ? "#ffffff" : "#000000"*/
-              font: {
-                size: 10,
-                lineHeight: 0.8,
-                weight: 'bold',
-                family: 'Poppins'
-              }
-            },
-            position: 'bottom'
-          },
-    },
-    // responsive: true,
-    interaction: {
-      intersect: false,
-    },
-    scales: {
-      x: {
-        stacked: true,
-      },
-      y: {
-        stacked: true
-      }
-    },
-    aspectRatio: 1,
-    borderRadius: 5,
-    barThickness: 10
-}
 
 const Bar = () => {
 

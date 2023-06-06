@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import logo from '../assets/Group-53.png'
 import Box from '@mui/material/Box';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 import Checkbox from '@mui/material/Checkbox';
 import { Link } from 'react-router-dom';
 import { signUpUser } from '../hooks/firebaseAuth';
@@ -11,6 +12,7 @@ import { useState} from 'react';
 import userContext from '../stores/userContext';
 import { useContext } from 'react';
 import { useHistory } from "react-router-dom";
+import { VisibilityOff } from '@mui/icons-material';
 
 
 const SignUp = () => {
@@ -26,6 +28,7 @@ const SignUp = () => {
         status: ''
     })
     const [loading, setLoading] = useState(false)
+    const [showPassword, setShowPassword] = useState(false)
 
     const createUser = async () => {
         setResponse({
@@ -71,8 +74,10 @@ const SignUp = () => {
                     </Box>
                     <Box sx={{display: 'flex', flexDirection: 'column'}}>
                         <label className='mb-2 text-[14px]'>Password</label>
-                        <input type='password' name='password' value={password} onChange={(e) => setPassword(e.target.value)} className='w-full py-4 dark:bg-dark-accent px-3 border rounded-3xl text-[14px] border-slate-200' placeholder='XXXXXXXXXXX'/>
-                    </Box>
+                        <div className='relative'><input type={showPassword ? "text" : "password"} name='password' value={password} onChange={(e) => setPassword(e.target.value)} className='w-full py-4 dark:bg-dark-accent px-3 border rounded-3xl text-[14px] border-slate-200' placeholder='XXXXXXXXXXX'/>
+                        <div onClick={() => setShowPassword(!showPassword)} className='absolute right-0 top-0 p-4 text-primary dark:text-[#fff]'>{showPassword ? <VisibilityIcon /> :<VisibilityOff /> }</div>
+                        </div>
+                        </Box>
                 </Box>
                 
                 <Box sx={{display: 'flex', alignItems: 'center', width: '100%', my: 2}}>

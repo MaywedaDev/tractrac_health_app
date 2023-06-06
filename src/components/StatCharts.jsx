@@ -7,6 +7,9 @@ import { Card, CardContent, CardHeader, Typography } from "@mui/material";
 import { Pie, Doughnut } from "react-chartjs-2";
 import userThemeContext from "../stores/userThemeContext";
 import { useContext } from "react";
+import RadarChart from "./Charts/RadarChart";
+import MapChart from "./Charts/MapChart";
+
 
 
 const pallette = {
@@ -67,6 +70,7 @@ const StatCharts = () => {
 
       
     return ( <div className="flex flex-wrap gap-5">
+
             <Card sx={CardStyles} color="primary" variant="outlined">
                 <CardContent >
                    <Typography fontSize={12} fontWeight={'bold'} variant="p" textTransform={'uppercase'} >Diagnostics</Typography>
@@ -76,6 +80,7 @@ const StatCharts = () => {
                    />
                 </CardContent>
             </Card>
+
             <Card color="primary" variant="outlined" sx={CardStyles}>
                 <CardContent >
                     <Typography fontSize={12} fontWeight={'bold'} variant="p" textTransform={'uppercase'} >Patients</Typography>
@@ -99,11 +104,27 @@ const StatCharts = () => {
                     />
                 </CardContent>
             </Card>
+
             <Card color="primary" variant="outlined" sx={CardStyles}>
                 <CardContent >
                     <Typography fontSize={12} fontWeight={'bold'} variant="p" textTransform={'uppercase'}>Health Index</Typography>
                 </CardContent>
             </Card>
+
+            <Card color="primary" variant="outlined" sx={{...CardStyles, width: "auto", flexGrow: 1, height: {xs: 'auto', sm: 270}, minWidth: 300}}>
+                <CardContent sx={{display: 'flex', flexDirection: "column", maxHeight: '100%'}}>
+                    <Typography fontSize={12} fontWeight={'bold'} variant="p" textTransform={'uppercase'}>Covid-19 Pandemic</Typography>
+                     <MapChart />
+                </CardContent>
+            </Card>
+
+            <Card color="primary" variant="outlined" sx={{...CardStyles, height: {xs: 'auto', sm: 270}}}>
+                <CardContent >
+                    <Typography fontSize={12} fontWeight={'bold'} variant="p" textTransform={'uppercase'}>Causes Range</Typography>
+                     <RadarChart />
+                </CardContent>
+            </Card>
+
         </div> );
 }
  
