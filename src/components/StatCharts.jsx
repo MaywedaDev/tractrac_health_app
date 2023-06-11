@@ -22,7 +22,7 @@ const pallette = {
 
 Chart.register(CategoryScale);
 
-const CardStyles = {width: {xs: '100%', sm: 240} , height: {xs: 'auto', sm: 210}, borderRadius: 3, mx: "auto", }
+const CardStyles = {width: {xs: '100%', sm: 240} , minHeight: {xs: 'auto', sm: 210}, borderRadius: 3, }
 
 const StatCharts = () => {
     const [chartData, setChartData] = useState({
