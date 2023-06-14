@@ -36,9 +36,10 @@ import { useContext } from 'react';
 const RadarChart = () => {
 
   const userTheme = useContext(userThemeContext)
-    return ( <>
+    return ( <div className='w-full h-full relative'>
         <Radar data={data} options={{
           aspectRatio: 1,
+          maintainAspectRatio: false,
           responsive: true,
           plugins: {
             legend: {
@@ -67,7 +68,7 @@ const RadarChart = () => {
             }
           }
         }}/>
-    </> );
+    </div> );
 }
  
 export default RadarChart;

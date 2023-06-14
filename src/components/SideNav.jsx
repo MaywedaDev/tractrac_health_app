@@ -67,14 +67,16 @@ const drawer = (<div className="dark:bg-dark-purple bg-paper">
         </Box>
         <List>
             {tabs.map((item, i) => (
+                <Link to={item.url}>
                 <ListItemButton sx={{py: '12px'}} key={i}>
                     <ListItemIcon >
                         <img src={icons[item.src]} alt="" />
                     </ListItemIcon>
-                    <ListItemText >
-                        <Link to={item.url} className="text-[14px]">{item.title}</Link>
+                    <ListItemText sx={{fontSize: '14px'}}>
+                    <span className="text-[14px]">{item.title}</span>
                     </ListItemText>
                 </ListItemButton>
+                </Link>
             ))}
         </List>
         <List
@@ -84,14 +86,16 @@ const drawer = (<div className="dark:bg-dark-purple bg-paper">
             </Typography>
         }>
         {accountTabs.map((item, i) => (
+            <Link to={item.url} className="text-[14px]">
                 <ListItemButton sx={{py: '12px'}} key={i}>
                     <ListItemIcon >
                         <img src={icons[item.src]} alt="" />
                     </ListItemIcon>
                     <ListItemText >
-                        <Link to={item.url} className="text-[14px]">{item.title}</Link>
+                        <span className="text-[14px]">{item.title}</span>
                     </ListItemText>
                 </ListItemButton>
+            </Link>
             ))}
         </List>
         <Box sx={{position: 'relative', mt: 'auto'}}>
