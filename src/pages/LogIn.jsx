@@ -55,7 +55,7 @@ const LogIn = () => {
     }
 
     return ( <div className='flex justify-center items-center min-h-screen py-20 dark:bg-[#050517] bg-primary font-body'>
-        <Card color='primary' sx={{maxWidth: '500px', width: '90%', p: 4, borderRadius: 4}} variant='outlined'>
+        <Card color='primary' sx={{maxWidth: '500px', width: '90%', p: {sm: 2, md: 4}, borderRadius: 4}} variant='outlined'>
             <CardContent sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                 <img src={logo} alt="" className='mb-6'/>
                 <Typography color='myText' variant='h6'  component='span' sx={{display: 'inline', fontWeight: 700, textTransform: 'uppercase'}} mb={4}>

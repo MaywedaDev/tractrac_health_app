@@ -57,7 +57,7 @@ const SignUp = () => {
 
 
     return ( <div className='flex justify-center items-center min-h-screen py-20 bg-primary dark:bg-[#050517] font-body'>
-        <Card sx={{maxWidth: '500px', width: '90%', p: 4, borderRadius: 4}} variant='outlined'>
+        <Card sx={{maxWidth: '500px', width: '90%', p: {sm: 2, md: 4}, borderRadius: 4}} variant='outlined'>
             <CardContent sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                 <img src={logo} alt="" className='mb-6'/>
                 <Typography variant='h6'  component='span' sx={{display: 'inline', fontWeight: 700, textTransform: 'uppercase'}} mb={4}>

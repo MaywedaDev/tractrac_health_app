@@ -99,7 +99,6 @@ const AreaChart = () => {
                         display: false,
                       }
                     },
-                    aspectRatio: 1,
                     borderRadius: 5,
                     barThickness: 7
                 }} data={{
