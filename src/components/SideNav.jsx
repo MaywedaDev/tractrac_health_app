@@ -59,7 +59,7 @@ const drawer = (<div className="dark:bg-dark-purple bg-paper">
             <Box sx={{ display: 'flex', px: 3,  alignItems: 'center' }}>
                 <img width={45} height={45} src={logo} alt="" className="mr-2" />
                 <Typography variant='h5'>
-                    Iwosan
+                    Medicare
                 </Typography>
                 {/* <img src={userTheme.theme ? icons.expandLight : icons.expand} className="ml-auto" alt="" /> */}
             </Box>
@@ -67,8 +67,8 @@ const drawer = (<div className="dark:bg-dark-purple bg-paper">
         </Box>
         <List>
             {tabs.map((item, i) => (
-                <Link to={item.url}>
-                <ListItemButton sx={{py: '12px'}} key={i}>
+                <Link to={item.url} key={i}>
+                <ListItemButton sx={{py: '12px'}} >
                     <ListItemIcon >
                         <img src={icons[item.src]} alt="" />
                     </ListItemIcon>
@@ -86,8 +86,8 @@ const drawer = (<div className="dark:bg-dark-purple bg-paper">
             </Typography>
         }>
         {accountTabs.map((item, i) => (
-            <Link to={item.url} className="text-[14px]">
-                <ListItemButton sx={{py: '12px'}} key={i}>
+            <Link to={item.url} className="text-[14px]" key={i}>
+                <ListItemButton sx={{py: '12px'}} >
                     <ListItemIcon >
                         <img src={icons[item.src]} alt="" />
                     </ListItemIcon>

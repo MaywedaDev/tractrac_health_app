@@ -67,6 +67,9 @@ const Bar = () => {
         scales: {
           x: {
             stacked: true,
+            ticks: {
+              color: userTheme.theme ? "#ffffff" : "#000000"
+            }
           },
           y: {
             stacked: true,
