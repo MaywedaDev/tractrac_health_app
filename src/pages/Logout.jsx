@@ -7,9 +7,9 @@ import { useHistory } from "react-router-dom";
 
 const Logout = () => {
     const user = useContext(userContext)
-    const history = useHistory()
+    // const history = useHistory()
     const logoutUser = () => {
-        history.push('/')
+        window.location.href = '/'
     }
     return ( 
         <Layout>

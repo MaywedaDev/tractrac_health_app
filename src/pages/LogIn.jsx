@@ -11,6 +11,8 @@ import { logInUser } from '../hooks/firebaseAuth';
 import userContext from '../stores/userContext';
 import { useContext } from 'react';
 import { useHistory } from "react-router-dom";
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import { VisibilityOff } from '@mui/icons-material';
 
 const LogIn = () => {
 
@@ -24,6 +26,7 @@ const LogIn = () => {
         status: ''
     })
     const [loading, setLoading] = useState(false)
+    const [showPassword, setShowPassword] = useState(false)
 
     const logUser = async () => {
         
@@ -41,8 +44,9 @@ const LogIn = () => {
             if(isRegistered.user?.displayName){
                 user.setName(isRegistered.user.displayName)
             }
+            user.setIsLoggedIn(true)
             console.log(user)
-            history.push('/dashboard')
+            history.replace('/')
         }
         else{
             setLoading(false)
@@ -64,13 +68,15 @@ const LogIn = () => {
                     </Box>
                     <Box sx={{display: 'flex', flexDirection: 'column'}}>
                         <label className='mb-2 text-[14px]'>Password</label>
-                        <input name='password' value={password} onChange={(e) => setPassword(e.target.value)} className=' dark:bg-dark-accent w-full dark:bg- py-4 px-3 border rounded-3xl text-[14px] border-slate-200' type="text" placeholder='XXXXXXXXXXX'/>
+                        <div className='relative'><input type={showPassword ? "text" : "password"} name='password' value={password} onChange={(e) => setPassword(e.target.value)} className='w-full py-4 dark:bg-dark-accent px-3 border rounded-3xl text-[14px] border-slate-200' placeholder='XXXXXXXXXXX'/>
+                        <div onClick={() => setShowPassword(!showPassword)} className='absolute right-0 top-0 p-4 text-primary dark:text-[#fff]'>{showPassword ? <VisibilityIcon /> :<VisibilityOff /> }</div>
+                        </div>
                     </Box>
                 </Box>
                 
                 <Box sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', my: 2}}>
                     <Box sx={{display: 'flex', alignItems: 'center'}}>
-                        <Checkbox sx={{p: 0}}/>
+                        <Checkbox sx={{p: 0}} color='secondary'/>
                         <p className='text-[14px] ml-1'>Remember Me</p>
                     </Box>
                     <Box>

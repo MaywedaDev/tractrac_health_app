@@ -1,50 +1,71 @@
-export const Data = [
+export const illnessData = [
     {
       id: 1,
-      year: 2016,
-      userGain: 80000,
+      illness: 'MALARIA',
+      userGain: 46800,
       userLost: 823
     },
     {
       id: 2,
-      year: 2017,
-      userGain: 45677,
+      illness: 'COLD',
+      userGain: 37400,
       userLost: 345
     },
     {
       id: 3,
-      year: 2018,
-      userGain: 78888,
+      illness: "THYPHOID",
+      userGain: 18700,
       userLost: 555
     },
     {
       id: 4,
-      year: 2019,
-      userGain: 90000,
+      illness: "OTHERS",
+      userGain: 84240,
       userLost: 4555
-    },
-    {
-      id: 5,
-      year: 2020,
-      userGain: 4300,
-      userLost: 234
     }
   ];
 
-  const data = {
-    labels: ['Red', 'Orange', 'Blue'],
-    // datasets is an array of objects where each object represents a set of data to display corresponding to the labels above. for brevity, we'll keep it at one object
-    datasets: [
-        {
-          label: 'Popularity of colours',
-          data: [55, 23, 96],
-          // you can set indiviual colors for each bar
-          backgroundColor: [
-            'rgba(255, 255, 255, 0.6)',
-            'rgba(255, 255, 255, 0.6)',
-            'rgba(255, 255, 255, 0.6)'
-          ],
-          borderWidth: 1,
-        }
-    ]
-}
+  export const patientData = [
+    {
+      id: 0,
+      category: "MEN",
+      amount: 440
+    },
+    {
+      id: 1,
+      category: "WOMEN",
+      amount: 528 
+    },
+    {
+      id: 2,
+      category: "CHILDREN",
+      amount: 132
+    }
+  ]
+
+  export const appointmentsData = [
+    {
+      data: [5, 3, 7, 4, 2, 8, 3, 0, 0],
+      label: 'Emergency',
+      backgroundColor: '#0000FF',
+      stack: "Stack 0"
+    },
+    {
+      data: [1, 8, 3, 2, 2, 9, 4, 0, 0],
+      label: 'Examination',
+      backgroundColor: '#FFFB00',
+      stack: "Stack 0"
+    },
+    {
+      data: [6, 4, 5, 3, 9, 2, 7, 1, 1],
+      label: 'Consultation',
+      backgroundColor: '#a500db',
+      stack: "Stack 0"
+    },
+    {
+      data: [7, 2, 1, 6, 9, 3, 6, 1, 1],
+      label: 'Routine CheckUp',
+      backgroundColor: '#FF0000',
+      stack: "Stack 0"
+    }
+  ]
