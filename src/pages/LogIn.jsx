@@ -13,6 +13,7 @@ import { useContext } from 'react';
 import { useHistory } from "react-router-dom";
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { VisibilityOff } from '@mui/icons-material';
+import { useLocalStorage } from '../hooks/useLocalStorage';
 
 const LogIn = () => {
 
@@ -25,6 +26,7 @@ const LogIn = () => {
         message: '',
         status: ''
     })
+    const [rememberPassword, setRememberPassword] = useState(false)
     const [loading, setLoading] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
 
@@ -45,8 +47,9 @@ const LogIn = () => {
                 user.setName(isRegistered.user.displayName)
             }
             user.setIsLoggedIn(true)
-            console.log(user)
+            // console.log(user)
             history.replace('/')
+            useLocalStorage(isRegistered.user)
         }
         else{
             setLoading(false)
@@ -55,7 +58,7 @@ const LogIn = () => {
     }
 
     return ( <div className='flex justify-center items-center min-h-screen py-20 dark:bg-[#050517] bg-primary font-body'>
-        <Card color='primary' sx={{maxWidth: '500px', width: '90%', p: 4, borderRadius: 4}} variant='outlined'>
+        <Card color='primary' sx={{maxWidth: '500px', width: '90%', p: {sm: 2, md: 4}, borderRadius: 4}} variant='outlined'>
             <CardContent sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                 <img src={logo} alt="" className='mb-6'/>
                 <Typography color='myText' variant='h6'  component='span' sx={{display: 'inline', fontWeight: 700, textTransform: 'uppercase'}} mb={4}>
@@ -76,7 +79,7 @@ const LogIn = () => {
                 
                 <Box sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', my: 2}}>
                     <Box sx={{display: 'flex', alignItems: 'center'}}>
-                        <Checkbox sx={{p: 0}} color='secondary'/>
+                        <Checkbox checked={rememberPassword} onChange={() => setRememberPassword(!rememberPassword)} sx={{p: 0}} color='secondary'/>
                         <p className='text-[14px] ml-1'>Remember Me</p>
                     </Box>
                     <Box>

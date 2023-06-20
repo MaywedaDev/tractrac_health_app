@@ -80,7 +80,7 @@ const StatCharts = () => {
                 <CardContent sx={{display: 'flex', flexDirection: 'column', height: "100%"}} >
                    <Typography fontSize={12} fontWeight={'bold'} variant="p" textTransform={'uppercase'} >Diagnostics</Typography>
                    <div className="w-full h-full relative">
-                      <div className="absolute top-[calc((100%-82px)/2)] right-[calc((100%-52px)/2)] text-white">
+                      <div className="absolute top-[calc((100%-82px)/2)] right-[calc((100%-52px)/2)] dark:text-white text-black">
                         <p className="text-lg font-semibold">187.2k</p>
                         <span className="text-xs uppercase">Patients</span>
                       </div>
@@ -96,7 +96,7 @@ const StatCharts = () => {
                 <CardContent sx={{display: 'flex', flexDirection: 'column', height: "100%"}} >
                     <Typography fontSize={12} fontWeight={'bold'} variant="p" textTransform={'uppercase'} >Patients</Typography>
                     <div className="w-full h-full relative text-center">
-                      <div className="absolute top-[calc((100%-78px)/2)] right-[calc((100%-52px)/2)] text-white">
+                      <div className="absolute top-[calc((100%-78px)/2)] right-[calc((100%-52px)/2)] dark:text-white text-black">
                         <p className="text-lg font-semibold">11M</p>
                         <span className="text-xs uppercase">Patients</span>
                       </div>
