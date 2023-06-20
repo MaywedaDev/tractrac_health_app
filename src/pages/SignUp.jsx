@@ -13,6 +13,7 @@ import userContext from '../stores/userContext';
 import { useContext } from 'react';
 import { useHistory } from "react-router-dom";
 import { VisibilityOff } from '@mui/icons-material';
+import { useLocalStorage } from '../hooks/useLocalStorage';
 
 
 const SignUp = () => {
@@ -46,7 +47,8 @@ const SignUp = () => {
                 user.setName(isRegistered.user.displayName)
             }
             user.setIsLoggedIn(true)
-            console.log(user)
+            // console.log(user)
+            useLocalStorage(isRegistered.user)
             // history.push('/dashboard')
         }
         else{

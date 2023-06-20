@@ -4,11 +4,13 @@ import { useContext } from "react";
 import logo from '../assets/Group-53.png'
 import { Button } from "@mui/material";
 import { useHistory } from "react-router-dom";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const Logout = () => {
     const user = useContext(userContext)
     // const history = useHistory()
     const logoutUser = () => {
+        localStorage.removeItem('user')
         window.location.href = '/'
     }
     return ( 

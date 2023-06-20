@@ -8,6 +8,7 @@ import { red } from '@mui/material/colors';
 import userThemeContext from './stores/userThemeContext';
 import userContext from './stores/userContext';
 import Logout from './pages/Logout';
+import { useLocalStorage } from './hooks/useLocalStorage';
 
 
 
@@ -69,6 +70,7 @@ function App() {
   const [userName, setUserName] = useState('Unknown')
   const [userEmail, setUserEmail] = useState('unverified@gmail.com')
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const storedUser = useLocalStorage();
 
   const themeCheck = () => {
     if (userSelectedTheme === 'dark' || (!userTheme && systemTheme)){
@@ -98,12 +100,19 @@ function App() {
     setUserTheme(true)
   }
 
+  if(storedUser.user && !isLoggedIn){
+    console.log(storedUser.user)
+    storedUser.user.name && setUserName(storedUser.user.name)
+    setUserEmail(storedUser.user.email)
+    setIsLoggedIn(true)
+  }
+
   // const handleThemeSwitch = () => {
 
   // }
   useEffect(() => {
     themeCheck()
-  }, [userEmail, userName])
+  }, [userName, userEmail])
   return (
     <>
     <ThemeProvider theme={userTheme ? darkTheme: lightTheme}>

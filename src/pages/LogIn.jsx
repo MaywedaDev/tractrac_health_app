@@ -13,6 +13,7 @@ import { useContext } from 'react';
 import { useHistory } from "react-router-dom";
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { VisibilityOff } from '@mui/icons-material';
+import { useLocalStorage } from '../hooks/useLocalStorage';
 
 const LogIn = () => {
 
@@ -25,6 +26,7 @@ const LogIn = () => {
         message: '',
         status: ''
     })
+    const [rememberPassword, setRememberPassword] = useState(false)
     const [loading, setLoading] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
 
@@ -45,8 +47,9 @@ const LogIn = () => {
                 user.setName(isRegistered.user.displayName)
             }
             user.setIsLoggedIn(true)
-            console.log(user)
+            // console.log(user)
             history.replace('/')
+            useLocalStorage(isRegistered.user)
         }
         else{
             setLoading(false)
@@ -76,7 +79,7 @@ const LogIn = () => {
                 
                 <Box sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', my: 2}}>
                     <Box sx={{display: 'flex', alignItems: 'center'}}>
-                        <Checkbox sx={{p: 0}} color='secondary'/>
+                        <Checkbox checked={rememberPassword} onChange={() => setRememberPassword(!rememberPassword)} sx={{p: 0}} color='secondary'/>
                         <p className='text-[14px] ml-1'>Remember Me</p>
                     </Box>
                     <Box>
