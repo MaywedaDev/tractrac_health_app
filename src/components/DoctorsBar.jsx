@@ -1,5 +1,5 @@
 import { Box, Card, CardContent, Typography } from "@mui/material";
-import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import icons from '../assets/icons'
 
 const doctors = [
@@ -53,7 +53,10 @@ const TableData = () => {
                         <li className="px-2 py-4">{doctor.role}</li>
                         <li className="px-2 py-4">{doctor.appointments}</li>
                         <li className="px-2 py-4 grid place-items-center"><img width={20} height={19} src={icons.chat} alt="" /></li>
-                        <li className="px-2 py-4">True</li>
+                        <li className="px-2 py-4"><button className={`${doctor.booked && 'bg-primary text-white'} py-1 w-[72px] uppercase rounded-3xl border border-borderLight dark:border-borderDark font-semibold`} >{doctor.booked ? 'Booked' : 'Book'}</button></li>
+                        <div className="absolute top-[calc((100%-24px)/2)] right-4">
+                            <MoreHorizIcon />
+                        </div>
                     </ul>
                 ))}
             </div>

@@ -45,5 +45,6 @@ const Layout = ({children, name}) => {
         </div>
      );
 }
+
  
 export default Layout;
