@@ -14,7 +14,7 @@ const Logout = () => {
         window.location.href = '/'
     }
     return ( 
-        <Layout>
+        <Layout name='Logout' >
             <div className="w-full rounded-xl h-full my-3 px-5 flex justify-center items-center flex-col border border-slate-400">
                 <img src={logo} alt="" />
                 <input  name='email' value={user.email} className='w-full max-w-[400px] py-4 px-3 border rounded-3xl text-[14px] border-slate-200' type="text" placeholder='XXXXXXXXXXX'/>

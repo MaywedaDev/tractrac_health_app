@@ -5,11 +5,11 @@ import { Switch } from "@mui/material";
 import { useContext, useState } from 'react';
 import userThemeContext from "../stores/userThemeContext";
 import userContext from "../stores/userContext";
-const Layout = ({children}) => {
+const Layout = ({children, name}) => {
     const userTheme = useContext(userThemeContext)
     const user = useContext(userContext)
 
-    console.log(user)
+    // console.log(user)
 
     const handleTheme = () => {
         userTheme.switchTheme()
@@ -23,10 +23,14 @@ const Layout = ({children}) => {
             <div className="min-h-full w-full flex flex-col">
                 <SearchBar />
                 <div className="flex flex-col px-2 w-full text-[14px] h-full">
-                    <div className="flex justify-between mb-4 px-1">
+                    <div className="flex justify-between mb-4 px-1 items-center">
                         <div className="mx-1">
-                            <p className="text-[#ff0000] font-semibold">Welcome {user.name == 'Unknown' ? user.email : user.name}</p>
-                            <span className="dark:text-white">How are you feeling today</span>
+                            {name ? <> 
+                                <p className="text-[#ff0000] text-[16px] font-semibold capitalize">{name}</p>
+                            </>: <>
+                                <p className="text-[#ff0000] font-semibold">Welcome {user.name == 'Unknown' ? user.email : user.name}</p>
+                                <span className="dark:text-white">How are you feeling today</span>
+                            </>}
                         </div>
                         <div className="flex items-center">
                             <WbSunny  color="secondary"/>
@@ -41,5 +45,6 @@ const Layout = ({children}) => {
         </div>
      );
 }
+
  
 export default Layout;

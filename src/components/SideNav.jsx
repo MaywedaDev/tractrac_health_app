@@ -13,7 +13,7 @@ const drawerWidth = 250
 const container = window !== undefined ? () => window.document.body : undefined;
 
 const tabs = [{title: 'Overview', src: 'overview', url: '/'}, {title: 'Appointments', src: 'apt', url: ''},
- {title: 'Doctors', src: 'doctors', url: ''}, {title: 'Pathology Results', src: 'path', url: ''}, {title: 'Chats', src: 'chat', url: ''}]
+ {title: 'Doctors', src: 'doctors', url: ''}, {title: 'Pathology Results', src: 'path', url: '/pathology'}, {title: 'Chats', src: 'chat', url: ''}]
 const accountTabs = [{title: 'Settings', src: 'search', url: ''}, {title: 'Logout', src: 'logout', url: '/logout'}]
 const SideNav = () => {
     const [mobileOpen, setMobileOpen] = useState(false)
@@ -63,7 +63,7 @@ const drawer = (<div className="dark:bg-dark-purple bg-paper">
                 </Typography>
                 {/* <img src={userTheme.theme ? icons.expandLight : icons.expand} className="ml-auto" alt="" /> */}
             </Box>
-            <div className="absolute w-full h-px bottom-0 dark:bg-slate-300"></div> 
+            <div className="absolute w-full h-px bottom-0 dark:bg-slate-700 bg-slate-300"></div> 
         </Box>
         <List>
             {tabs.map((item, i) => (
@@ -99,7 +99,7 @@ const drawer = (<div className="dark:bg-dark-purple bg-paper">
             ))}
         </List>
         <Box sx={{position: 'relative', mt: 'auto'}}>
-        <div className="absolute w-full h-px top-0 dark:bg-slate-300"></div> 
+        <div className="absolute w-full h-px top-0 dark:bg-slate-700 bg-slate-300"></div> 
             <List>
                 <ListItemButton sx={{gap: 1.5}}>
                     <ListItemIcon sx={{p: 1, backgroundColor: '#100DB1', borderRadius: 1, minWidth: 2 }}>

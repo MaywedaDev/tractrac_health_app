@@ -9,6 +9,7 @@ import userThemeContext from './stores/userThemeContext';
 import userContext from './stores/userContext';
 import Logout from './pages/Logout';
 import { useLocalStorage } from './hooks/useLocalStorage';
+import Pathology from './pages/Pathology';
 
 
 
@@ -142,6 +143,14 @@ function App() {
             <Route exact path="/logout">
               <Logout />
             </Route>
+
+            {isLoggedIn && <>
+
+              <Route exact path="/pathology">
+                <Pathology />
+              </Route>
+              
+            </>}
 
             {/* <Route exact path='/dashboard'>
               <Dashboard />
